@@ -1,0 +1,124 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. Sarah Johnson",
+        "subject": "Biology",
+        "stars": 4,
+        "review": "Engaging lectures and fair grading. Could improve on office hours availability."
+      },
+      {
+        "professor": "Prof. Michael Chen",
+        "subject": "Computer Science",
+        "stars": 5,
+        "review": "Brilliant instructor! Makes complex topics easy to understand. Highly recommended."
+      },
+      {
+        "professor": "Dr. Emily Rodriguez",
+        "subject": "Psychology",
+        "stars": 3,
+        "review": "Knowledgeable but sometimes disorganized. Interesting course material."
+      },
+      {
+        "professor": "Prof. David Williams",
+        "subject": "Mathematics",
+        "stars": 4,
+        "review": "Challenging course, but Prof. Williams is patient and explains concepts well."
+      },
+      {
+        "professor": "Dr. Lisa Thompson",
+        "subject": "English Literature",
+        "stars": 5,
+        "review": "Passionate about the subject. Encourages critical thinking and class discussions."
+      },
+      {
+        "professor": "Prof. Robert Brown",
+        "subject": "Chemistry",
+        "stars": 2,
+        "review": "Difficult to follow lectures. Needs to improve teaching style."
+      },
+      {
+        "professor": "Dr. Jennifer Lee",
+        "subject": "History",
+        "stars": 4,
+        "review": "Engaging storyteller. Makes history come alive. Heavy workload though."
+      },
+      {
+        "professor": "Prof. Thomas Anderson",
+        "subject": "Physics",
+        "stars": 3,
+        "review": "Knowledgeable but can be intimidating. Office hours are helpful."
+      },
+      {
+        "professor": "Dr. Maria Garcia",
+        "subject": "Sociology",
+        "stars": 5,
+        "review": "Thought-provoking lectures. Encourages students to challenge assumptions."
+      },
+      {
+        "professor": "Prof. James Wilson",
+        "subject": "Economics",
+        "stars": 4,
+        "review": "Clear explanations of complex economic theories. Fair exams."
+      },
+      {
+        "professor": "Dr. Laura Martinez",
+        "subject": "Art History",
+        "stars": 5,
+        "review": "Passionate and knowledgeable. Field trips to museums were a highlight."
+      },
+      {
+        "professor": "Prof. Kevin Taylor",
+        "subject": "Political Science",
+        "stars": 3,
+        "review": "Interesting course content, but lectures can be dry at times."
+      },
+      {
+        "professor": "Dr. Rachel Green",
+        "subject": "Environmental Science",
+        "stars": 4,
+        "review": "Engaging instructor with a focus on real-world applications. Group projects were challenging but rewarding."
+      },
+      {
+        "professor": "Prof. Daniel Kim",
+        "subject": "Philosophy",
+        "stars": 5,
+        "review": "Mind-expanding discussions. Prof. Kim is a master at facilitating deep thinking."
+      },
+      {
+        "professor": "Dr. Olivia Parker",
+        "subject": "Linguistics",
+        "stars": 4,
+        "review": "Fascinating subject matter. Dr. Parker is enthusiastic and approachable."
+      },
+      {
+        "professor": "Prof. Christopher Lee",
+        "subject": "Business Administration",
+        "stars": 3,
+        "review": "Practical course with real-world examples. Could improve on feedback for assignments."
+      },
+      {
+        "professor": "Dr. Samantha Wright",
+        "subject": "Anthropology",
+        "stars": 5,
+        "review": "Exceptional teacher. Field work component was invaluable."
+      },
+      {
+        "professor": "Prof. Alexander Nguyen",
+        "subject": "Mechanical Engineering",
+        "stars": 4,
+        "review": "Challenging course, but Prof. Nguyen is always willing to help. Great lab sessions."
+      },
+      {
+        "professor": "Dr. Elizabeth Carter",
+        "subject": "Psychology",
+        "stars": 2,
+        "review": "Unorganized and often late to class. Interesting topic, poor execution."
+      },
+      {
+        "professor": "Prof. Jonathan Miller",
+        "subject": "Music Theory",
+        "stars": 5,
+        "review": "Inspiring instructor. Makes complex musical concepts accessible to all skill levels."
+      }
+    ]
+  }
