@@ -1,118 +1,134 @@
 'use client'
-import { Box, Button, Stack, TextField } from "@mui/material";
-import { useState } from "react";
+import { Box, Button, Typography } from "@mui/material";
+import Navbar from "./components/navbar";
 
+const FeatureBox = ({ title, description, align }) => (
+  <Box 
+    display={'flex'} 
+    flexDirection={'column'}
+    alignItems={align} // Align items based on the align prop
+    width='40vw'
+    sx={{
+      backgroundColor: 'black', 
+      borderRadius: align === 'flex-start' ? '0 12px 12px 0' : '12px 0 0 12px', // Conditional border-radius
+      color: 'white', 
+      mb: 4,
+      p: 2 // Padding for spacing
+    }}
+  >
+    <Typography variant="h4" sx={{ textAlign: 'left' }}>{title}</Typography>
+    <Typography variant='h6' sx={{ textAlign: 'left' }}>{description}</Typography>
+  </Box>
+)
 
 export default function Home() {
-  const[messages, setMessages] = useState([
-    {
-      role:'assistant',
-      content: 'Welcome to the Rate My Professor RAG App. How may I help you today?'
-    }
-  ])
-  const[message, setMessage] = useState('')
-
-
-  const sendMessage = async () =>{
-    setMessage('')
-    setMessages((messages) => [
-      ...messages,
-      { role: 'user', content: message },
-      { role: 'assistant', content: '' }
-    ])
-    const response = fetch('/api/chat', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify([...messages, {role:'user', content:message}])
-    }).then(async(res)=>{
-      const reader = res.body.getReader()
-      const decoder = new TextDecoder()
-
-
-      let result = ''
-      return reader.read().then(function processText({done, value}){
-        if(done){
-          return result
-        }
-        const text = decoder.decode(value || new Int8Array(), {stream:true})
-        setMessages((messages)=>{
-          let lastMessage = messages[messages.length-1]
-          let otherMessages = messages.slice(0, messages.length-1)
-          return [
-            ...otherMessages,
-            {
-              ...lastMessage, 
-              content: lastMessage.content + text
-            },
-          ]
-        })
-        return reader.read().then(processText)
-      })
-    })
-  }
   return (
     <Box
       width={'100vw'}
-      height={'100vh'}
       display={'flex'}
       flexDirection={'column'}
       alignItems={'center'}
+      sx={{
+        color: '#f0f0f0', 
+        padding: 0,
+        minHeight: '100vh'
+      }}
     >
-      <Stack
-        direction='column'
-        width = '500px'
-        height = '700px'
-        border = '1px solid black'
-        p={2}
-        spacing={3}
+      <Navbar />
+      <Box 
+        display={'flex'} 
+        flexDirection={'column'} 
+        justifyContent={'center'}
+        alignItems={'center'}
+        width={'90vw'}
+        height={'40vh'}
         sx={{
-          mt:6
+          mt:2,
+          backgroundColor:'#111111',
+          color:'#f0f0f0',
+          borderRadius:12
         }}
       >
-        <Stack
-          direction={'column'}
-          spacing={2}
-          flexGrow={1}
-          overflow={'auto'}
-          minHeight={'100%'}
+        <Typography variant="h1" sx={{mb:10, fontWeight:'bold'}}>Rate My Professor</Typography>
+        <Button variant="contained" sx={{fontSize:20, fontWeight:'bold'}} href='/professors'>Professors List</Button>
+      </Box>
+      <Box 
+        width='100vw' 
+        height='400px' 
+        display='flex'
+        flexDirection='column'
+      >
+        <Typography variant="h2" textAlign='center' mt={4} mb={4} fontWeight='bold' >Features</Typography>
+        <Box
+          display='flex'
+          flexDirection='column'
+          alignItems='flex-start'
+          width='70vw'
+          p={4}
+          sx={{
+            backgroundColor:'#111111', 
+            color:'#f0f0f0', 
+            mb:10,
+            borderRadius: '0 50px 50px 0'
+          }}
         >
-          {
-            messages.map((message, index)=>(
-              <Box
-                key={index}
-                display={'flex'}
-                justifyContent={message.role === 'assistant' ? 'flex-start' : 'flex-end'}
-              >
-                <Box
-                  bgcolor={message.role === 'assistant' ? 'primary.main' : 'gray'}
-                  color={message.role === 'assistant' ? 'white' : 'black'}
-                  borderRadius={16}
-                  p={3}
-                >
-                  {message.content}
-                </Box>
-              </Box>
-            ))
-          }
-        </Stack>
-        <Stack
-          direction={'row'}
-          spacing={2}
+          <Typography variant="h3" mb={3} fontWeight={'bold'}>AI ChatBot</Typography>
+          <Typography variant='h4'>Chat with a helpful chatbot that will provide you with advice and suggestions on which professor to choose.</Typography>
+        </Box>
+        <Box
+          display='flex'
+          flexDirection='column'
+          alignItems='flex-end'
+          width='70vw'
+          p={4}
+          sx={{
+            backgroundColor:'#111111', 
+            color:'#f0f0f0', 
+            ml:'30%', 
+            mb:10,
+            borderRadius: '50px 0 0 50px'
+          }}
         >
-          <TextField
-            label='message'
-            fullWidth
-            value={message}
-            onChange={(e)=>{setMessage(e.target.value)}}
+          <Typography variant="h3" textAlign={'left'} mb={3} fontWeight={'bold'}>RAG Application</Typography>
+          <Typography variant="h4">Uses Pinecone to enable efficient and scalable retrievable data based on user queries.</Typography>
+        </Box>
+        <Box
+          display='flex'
+          flexDirection='column'
+          alignItems='flex-start'
+          width='70vw'
+          p={4}
+          sx={{
+            backgroundColor:'#111111', 
+            color:'#f0f0f0', 
+            mb:10,
+            borderRadius: '0 50px 50px 0'
+          }}
+        >
+          <Typography variant="h3" mb={3} fontWeight={'bold'}>Easy Search</Typography>
+          <Typography variant="h4">Easily search for a professor via filters. Can be done by their stars, subject, or name.</Typography>
+        </Box>
+      </Box>
+      {/* <Box width='100vw' sx={{ mt: 4 }}>
+        <Typography variant="h3" align='center'>Features</Typography>
+        <Box sx={{ mt: 2 }}>
+          <FeatureBox 
+            title="AI Chatbot" 
+            description="Chat with a helpful chatbot that will provide you with advice and suggestions on which professor to choose."
+            align="flex-start" // Align to the left
           />
-          <Button variant='outlined' onClick={sendMessage}> Send </Button>
-        </Stack>
-      </Stack>
+          <FeatureBox 
+            title="RAG Application" 
+            description="Uses Pinecone to enable efficient and scalable retrievable data based on user queries."
+            align="flex-end" // Align to the right
+          />
+          <FeatureBox 
+            title="Easy Search" 
+            description="Easily search for a professor via filters. Can be done by their stars, subject, or name."
+            align="flex-start" // Align to the left
+          />
+        </Box>
+      </Box> */}
     </Box>
   )
 }
-
-
-
