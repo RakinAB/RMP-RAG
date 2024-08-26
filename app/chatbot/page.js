@@ -66,11 +66,12 @@ export default function Home() {
         direction='column'
         width = '500px'
         height = '700px'
-        border = '1px solid black'
         p={2}
         spacing={3}
         sx={{
-          mt:6
+          mt:6,
+          backgroundColor:'#333333',
+          borderRadius:12
         }}
       >
         <Stack
@@ -108,8 +109,17 @@ export default function Home() {
             fullWidth
             value={message}
             onChange={(e)=>{setMessage(e.target.value)}}
+            variant="filled"
+            sx={{
+              input: { color: '#f0f0f0' },
+              '& .MuiInputLabel-root': { color: '#f0f0f0' },
+              '& .MuiFilledInput-underline:before': { borderBottomColor: '#f0f0f0' },
+              '& .MuiFilledInput-underline:hover:before': { borderBottomColor: '#f0f0f0' },
+              '& .MuiFilledInput-underline:after': { borderBottomColor: '#f0f0f0' },
+              '& .MuiSelect-icon': { color: '#f0f0f0' }  // Makes the dropdown arrow white
+          }}
           />
-          <Button variant='outlined' onClick={sendMessage}> Send </Button>
+          <Button variant='contained' onClick={sendMessage}> Send </Button>
         </Stack>
       </Stack>
     </Box>
